@@ -1,10 +1,11 @@
+#' @export TVDMSS
 TVDMSS=function(data,nCurve,nPoint)
 {
   pointwiseRank=t(apply(data,1,rank));
-  
+
   shapeVar=matrix(0,nPoint,nCurve);
   totalVar=pointwiseRank*(nCurve-pointwiseRank)/nCurve/nCurve;
-  
+
   pointwiseMedian=apply(data,1,median);
   for(i in 2:nPoint)
   {
@@ -14,30 +15,30 @@ TVDMSS=function(data,nCurve,nPoint)
       dataAtI=data[i,];shift=dataAtI[j]-medianAtI;
       dataAtI_=data[i-1,];
       dataAtI[j]=medianAtI;dataAtI_[j]=dataAtI_[j]-shift;
-      
+
       belowAtI_=dataAtI_<=dataAtI_[j];
       belowAtI=dataAtI<=medianAtI;
-      
+
       below_=sum(belowAtI_);
       below_below=sum(belowAtI_ & belowAtI);
       above_below=sum((!belowAtI_)&belowAtI);
-      
+
       part1=below_below^2/below_;
       if(below_==nCurve) part2=0 else part2=above_below^2/(nCurve-below_);
-      
+
       shapeVar[i,j]=(part1+part2)/nCurve-(nCurve/2)^2/nCurve/nCurve;
     }
   }
-  
+
   v=abs(apply(data,2,diff))
   v_=colSums(v);
-  v=t(t(v)/v_);  
-  
+  v=t(t(v)/v_);
+
   TVD=colMeans(totalVar);
-  
+
   MSS=shapeVar[2:nPoint,]/0.25;
   MSS=colSums(MSS*v);
-  
+
   return(list(TVD=TVD,MSS=MSS));
 }
 
@@ -57,23 +58,23 @@ fbplotDetect<-function(data,depth,shapeOutlier)
 {
   nCurve=dim(data)[2];
   nCentral=floor(nCurve/2);
-  
+
   remain=1:nCurve;
-  if(!is.null(shapeOutlier)) 
+  if(!is.null(shapeOutlier))
   {
     data=data[,-shapeOutlier]
     depth=depth[-shapeOutlier]
     remain=remain[-shapeOutlier];
   }
   index=order(depth,decreasing=T);
-  
+
   center=data[,index[1:nCentral]];
   inf=apply(center,1,min);
   sup=apply(center,1,max);
   dist=1.5*(sup-inf);
   upper=sup+dist;
   lower=inf-dist;
-  
+
   outly=(data<=lower)+(data>=upper);
   outpoint=which(colSums(outly)>0);
   return(remain[outpoint]);
@@ -97,6 +98,6 @@ detectOutlier<-function(data,nCurve,nPoint,empFactor)
   magOutlier=NULL;shapeOutlier=NULL;
   shapeOutlier=boxDetect(MSS,empFactor)
   magOutlier=fbplotDetect(data,TVD,shapeOutlier);
-  
+
   return(list(outlier=sort(c(shapeOutlier,magOutlier)),sOut=shapeOutlier,mOut=magOutlier,TVD=TVD,MSS=MSS));
 }
