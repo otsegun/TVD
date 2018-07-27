@@ -1,5 +1,2 @@
-<<<<<<< HEAD
-export(TVDMSS,detectOutlier)
-=======
-exportPattern("^[^\\.]")
->>>>>>> 4cb683b55671c7827825c9ea60adacf3fb8f034e
+export(TVDMSS)
+export(detectOutlier)
