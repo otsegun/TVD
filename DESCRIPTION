@@ -4,3 +4,4 @@ Title: Total Variation Depth and Its Decomposition for Functional data Outlier D
 Author: Huang Huang and Ying Sun
 Maintainer: Huang Huang <hhuang0402@gmail.com>
 Description: Get the Total Variation Depth (TVD) and the Modified Shape Similarity (MSS) for functional data. And use them to detect outliers.
+LazyData: true
