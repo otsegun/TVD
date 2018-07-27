@@ -1,11 +1,9 @@
 Package: TVD
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Title: Total Variation Depth and Its Decomposition for Functional-data Outlier Detection
+Author: Huang Huang and Ying Sun
+Maintainer: hhuang0402@gmail.com
+Description: Get the Total Variation Depth (TVD) and the Modified Shape Similarity (MSS) for functional data. And use them to detect outliers.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
