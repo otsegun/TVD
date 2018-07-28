@@ -48,7 +48,7 @@
 #' @param nCurve A scalar, the number of curves
 #' @param nPoint A scalar, the number of discrete time points
 #' @param data A matrix with dimension nCurve by nPoint, the functional data
-#' @return A list containing TVD and MSS
+#' @return Return a list containing TVD and MSS
 #' @return TVD, a vector of nCurve elements, corresponding to TVD of each curve
 #' @return MSS, a vector of nCurve elements, corresponding to MSS of each curve
 TVDMSS=function(data,nCurve,nPoint)
@@ -101,7 +101,7 @@ TVDMSS=function(data,nCurve,nPoint)
 #' @param nPoint A scalar, the number of discrete time points
 #' @param data A matrix with dimension nCurve by nPoint, the functional data
 #' @param empFactor A scalar, the empirical factor in the boxplot of MSS for detecting shape outliers
-#' @return A list containing outlier, sOut, mOut, TVD, MSS
+#' @return Retrun a list containing outlier, sOut, mOut, TVD, MSS
 #' @return outlier, a vector showing all the outliers
 #' @return sOut, a vector showing shape outliers
 #' @return mOut, a vector showing magnitude outliers

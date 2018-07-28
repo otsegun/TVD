@@ -14,7 +14,7 @@ TVDMSS(data, nCurve, nPoint)
 \item{nPoint}{A scalar, the number of discrete time points}
 }
 \value{
-A list containing TVD and MSS
+Return a list containing TVD and MSS
 
 TVD, a vector of nCurve elements, corresponding to TVD of each curve
 
