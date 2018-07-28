@@ -2,7 +2,7 @@
 % Please edit documentation in R/TVD.R
 \name{TVDMSS}
 \alias{TVDMSS}
-\title{Return TVD and MSS for functional data}
+\title{Return TVD and MSS of functional data}
 \usage{
 TVDMSS(data, nCurve, nPoint)
 }
@@ -14,10 +14,12 @@ TVDMSS(data, nCurve, nPoint)
 \item{nPoint}{A scalar, the number of discrete time points}
 }
 \value{
-TVD
+A list containing TVD and MSS
 
-MSS
+TVD, a vector of nCurve elements, corresponding to TVD of each curve
+
+MSS, a vector of nCurve elements, corresponding to MSS of each curve
 }
 \description{
-Return TVD and MSS for functional data
+Return TVD and MSS of functional data
 }

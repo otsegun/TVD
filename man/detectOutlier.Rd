@@ -16,15 +16,17 @@ detectOutlier(data, nCurve, nPoint, empFactor)
 \item{empFactor}{A scalar, the empirical factor in the boxplot of MSS for detecting shape outliers}
 }
 \value{
-outlier, all the outliers
+A list containing outlier, sOut, mOut, TVD, MSS
 
-sOut, shape outliers
+outlier, a vector showing all the outliers
 
-mOut, magnitude outliers
+sOut, a vector showing shape outliers
 
-TVD
+mOut, a vector showing magnitude outliers
 
-MSS
+TVD, a vector of nCurve elements, corresponding to TVD of each curve
+
+MSS, a vector of nCurve elements, corresponding to MSS of each curve
 }
 \description{
 Detect outliers

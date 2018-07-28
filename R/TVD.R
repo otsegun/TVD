@@ -43,13 +43,14 @@
   return(.findPos(out,depth));
 }
 
-#' Return TVD and MSS for functional data
+#' Return TVD and MSS of functional data
 #'
 #' @param nCurve A scalar, the number of curves
 #' @param nPoint A scalar, the number of discrete time points
 #' @param data A matrix with dimension nCurve by nPoint, the functional data
-#' @return TVD
-#' @return MSS
+#' @return A list containing TVD and MSS
+#' @return TVD, a vector of nCurve elements, corresponding to TVD of each curve
+#' @return MSS, a vector of nCurve elements, corresponding to MSS of each curve
 TVDMSS=function(data,nCurve,nPoint)
 {
   if(nCurve<3) stop("the number of curves must be greater than 2")
@@ -100,11 +101,12 @@ TVDMSS=function(data,nCurve,nPoint)
 #' @param nPoint A scalar, the number of discrete time points
 #' @param data A matrix with dimension nCurve by nPoint, the functional data
 #' @param empFactor A scalar, the empirical factor in the boxplot of MSS for detecting shape outliers
-#' @return outlier, all the outliers
-#' @return sOut, shape outliers
-#' @return mOut, magnitude outliers
-#' @return TVD
-#' @return MSS
+#' @return A list containing outlier, sOut, mOut, TVD, MSS
+#' @return outlier, a vector showing all the outliers
+#' @return sOut, a vector showing shape outliers
+#' @return mOut, a vector showing magnitude outliers
+#' @return TVD, a vector of nCurve elements, corresponding to TVD of each curve
+#' @return MSS, a vector of nCurve elements, corresponding to MSS of each curve
 detectOutlier<-function(data,nCurve,nPoint,empFactor)
 {
   if(nCurve<3) stop("the number of curves must be greater than 2")
