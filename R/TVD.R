@@ -48,7 +48,8 @@
 #' @param nCurve A scalar, the number of curves
 #' @param nPoint A scalar, the number of discrete time points
 #' @param data A matrix with dimension nCurve by nPoint, the functional data
-#' @return TVD and MSS
+#' @return TVD
+#' @return MSS
 TVDMSS=function(data,nCurve,nPoint)
 {
   if(nCurve<3) stop("the number of curves must be greater than 2")
@@ -93,6 +94,17 @@ TVDMSS=function(data,nCurve,nPoint)
   return(list(TVD=TVD,MSS=MSS));
 }
 
+#' Detect outliers
+#'
+#' @param nCurve A scalar, the number of curves
+#' @param nPoint A scalar, the number of discrete time points
+#' @param data A matrix with dimension nCurve by nPoint, the functional data
+#' @param empFactor A scalar, the empirical factor in the boxplot of MSS for detecting shape outliers
+#' @return outlier, all the outliers
+#' @return sOut, shape outliers
+#' @return mOut, magnitude outliers
+#' @return TVD
+#' @return MSS
 detectOutlier<-function(data,nCurve,nPoint,empFactor)
 {
   if(nCurve<3) stop("the number of curves must be greater than 2")
