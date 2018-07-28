@@ -43,6 +43,12 @@
   return(.findPos(out,depth));
 }
 
+#' Return TVD and MSS for functional data
+#'
+#' @param nCurve A scalar, the number of curves
+#' @param nPoint A scalar, the number of discrete time points
+#' @param data A matrix with dimension nCurve by nPoint, the functional data
+#' @return TVD and MSS
 TVDMSS=function(data,nCurve,nPoint)
 {
   if(nCurve<3) stop("the number of curves must be greater than 2")
